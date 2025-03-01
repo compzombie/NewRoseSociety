@@ -12,11 +12,14 @@
             "args": [
                 "app.main:app",
                 "--reload",
+                "--host", 
+                "0.0.0.0",
                 "--port",
                 "8000"
             ],
             "jinja": true,
-            "cwd": "${workspaceFolder}/backend"
+            "cwd": "${workspaceFolder}/backend",
+            "justMyCode": true
         },
         {
             "name": "React: Frontend",
@@ -27,28 +30,31 @@
             "runtimeArgs": ["start"],
             "env": {
                 "BROWSER": "none"
-            }
+            },
+            "console": "integratedTerminal"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Chrome: Frontend",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/frontend"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Chrome: Backend API",
-            "url": "http://localhost:8000",
-            "webRoot": "${workspaceFolder}/backend"
+            "webRoot": "${workspaceFolder}/frontend/src",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            }
         }
     ],
     "compounds": [
         {
-            "name": "Full Stack: Frontend + Backend",
+            "name": "Full Stack Application",
             "configurations": ["Python: FastAPI Backend", "React: Frontend", "Chrome: Frontend"],
-            "stopAll": true
+            "stopAll": true,
+            "presentation": {
+                "hidden": false,
+                "group": "Development",
+                "order": 1
+            }
         }
     ]
 }
