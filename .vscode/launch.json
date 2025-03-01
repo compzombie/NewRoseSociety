@@ -1,4 +1,3 @@
-
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -6,31 +5,49 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: FastAPI",
+            "name": "Python: FastAPI Backend",
             "type": "python",
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "app.main:app",  // Updated to look for main.py in an app directory
+                "app.main:app",
                 "--reload",
                 "--port",
                 "8000"
             ],
             "jinja": true,
-            "cwd": "${workspaceFolder}"  // Explicitly setting the working directory
+            "cwd": "${workspaceFolder}/backend"
+        },
+        {
+            "name": "React: Frontend",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/frontend",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["start"],
+            "env": {
+                "BROWSER": "none"
+            }
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against FastAPI",
+            "name": "Chrome: Frontend",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/frontend"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome: Backend API",
             "url": "http://localhost:8000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/backend"
         }
     ],
     "compounds": [
         {
-            "name": "FastAPI + Chrome",
-            "configurations": ["Python: FastAPI", "Launch Chrome against FastAPI"],
+            "name": "Full Stack: Frontend + Backend",
+            "configurations": ["Python: FastAPI Backend", "React: Frontend", "Chrome: Frontend"],
             "stopAll": true
         }
     ]

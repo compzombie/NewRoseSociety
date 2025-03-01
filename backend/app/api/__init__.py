@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+# This file makes the api directory a Python package

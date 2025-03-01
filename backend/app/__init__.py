@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+# This file makes the app directory a Python package
