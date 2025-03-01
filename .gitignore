@@ -60,3 +60,4 @@ $RECYCLE.BIN/
 # Project specific
 frontend/build/
 frontend/node_modules/
+.vscode/launch.json
