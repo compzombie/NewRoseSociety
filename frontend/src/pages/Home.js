@@ -8,7 +8,7 @@ function Home() {
 
   useEffect(() => {
     // Fetch data from the backend API
-    axios.get('http://localhost:8000/')
+    axios.get('/api')
       .then(response => {
         setMessage(response.data.message);
         setLoading(false);
