@@ -5,15 +5,7 @@ import '../styles/Header.css';
 function Header() {
   return (
     <header className="header">
-      <div className="logo">
-        <Link to="/">New Rose Society</Link>
-      </div>
-      <nav className="navigation">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
+          <h1>New Rose Society</h1>
     </header>
   );
 }
